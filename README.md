@@ -40,6 +40,12 @@ npm start
 
 ![alt text](imagens/Captura%20de%20tela%202023-04-20%20195219.png)
 
+![233478126-33fcb398-2634-4712-8adb-7fef6b717202](https://user-images.githubusercontent.com/131197092/233478322-ce85104f-dd8a-4733-a707-4e30435efa99.png)
+
+
+
+
+
 
 ## 🎁 Expressões de gratidão
 
