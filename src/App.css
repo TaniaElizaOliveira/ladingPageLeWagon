@@ -20,7 +20,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: calc(15px + 2vmin);
   color: white;
 }
 
@@ -36,3 +36,50 @@
     transform: rotate(360deg);
   }
 }
+.card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: black;
+  
+}
+
+.neon-border {
+  position: relative;
+  padding: 10rem;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+  animation: neon-animation 1.5s ease-in-out infinite;
+}
+
+@keyframes neon-animation {
+  0% {
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+  }
+}
+
+.card-content {
+  text-align: center;
+  color: white;
+  background-image: '../public/assets/img/eu2.jpg';
+}
+
+.card-content h2 {
+  font-size: 2rem;
+  font-family: 'Space Mono', monospace;
+}
+
+.card-content p {
+  font-size: 3rem;
+  font-family: 'Space Mono', monospace;
+}
+
+
+
