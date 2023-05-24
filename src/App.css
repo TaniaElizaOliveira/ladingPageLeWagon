@@ -57,3 +57,31 @@
     box-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
   }
 }
+.divider-custom{
+  padding-top: 3rem;
+
+}
+.siRuby{
+  color: #012952;
+  margin: 0,5rem;
+  width: 20vmin;
+  height: 20vmin;
+  background-color: rgba(0, 255, 255, 0.8);
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.8), 0 0 20px rgba(0, 255, 255, 0.8), 0 0 30px rgba(0, 255, 255, 0.8), 0 0 40px rgba(0, 255, 255, 0.8), 0 0 70px rgba(0, 255, 255, 0.8), 0 0 80px rgba(0, 255, 255, 0.8), 0 0 100px rgba(0, 255, 255, 0.8), 0 0 150px rgba(0, 255, 255, 0.8);
+  
+}
+.siHtml{
+  color: #012952;
+  margin: 5rem;
+  width: 20vmin;
+  height: 20vmin;
+  background-color: rgba(0, 255, 255, 0.8);
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.8), 0 0 20px rgba(0, 255, 255, 0.8), 0 0 30px rgba(0, 255, 255, 0.8), 0 0 40px rgba(0, 255, 255, 0.8), 0 0 70px rgba(0, 255, 255, 0.8), 0 0 80px rgba(0, 255, 255, 0.8), 0 0 100px rgba(0, 255, 255, 0.8), 0 0 150px rgba(0, 255, 255, 0.8);
+}
+.siCss{
+  color: #012952;
+  width: 20vmin;
+  height: 20vmin;
+  background-color: rgba(0, 255, 255, 0.8);
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.8), 0 0 20px rgba(0, 255, 255, 0.8), 0 0 30px rgba(0, 255, 255, 0.8), 0 0 40px rgba(0, 255, 255, 0.8), 0 0 70px rgba(0, 255, 255, 0.8), 0 0 80px rgba(0, 255, 255, 0.8), 0 0 100px rgba(0, 255, 255, 0.8), 0 0 150px rgba(0, 255, 255, 0.8);
+}

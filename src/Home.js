@@ -1,6 +1,13 @@
+import { SiRuby } from "react-icons/si";
+import { SiHtml5 } from "react-icons/si";
+import { SiCss3 } from "react-icons/si";
+
+
+
 const Home = () => {
     return (
         <div id="page-top">
+           
             <nav className="navbar navbar-expand-lg bg-secondary fixed-top" id="mainNav">
                 <div className="container">
                     <a className="navbar-brand" href="#page-top">Tech Recruiter, StepByTech Presents...</a>
@@ -37,17 +44,16 @@ const Home = () => {
                 <div className="container">
                     <h2 className="page-section-heading text-center text-uppercase text-primary mb-0">Hard Skills</h2>
                     <div className="divider-custom">
-                        <div className="divider-custom-line"></div>
-                        <div className="divider-custom-icon"><i className="fas fa-star"></i></div>
-                        <div className="divider-custom-line"></div>
+                    <SiRuby className="siRuby"/>
+                    <SiHtml5 className="siHtml"/>
+                    <SiCss3 className="siCss"/>
                     </div>
                     <div className="row justify-content-center">
                         <div className="col-md-6 col-lg-4 mb-5">
                             <div className="ladding-item mx-auto" data-bs-toggle="modal" data-bs-target="#laddingModal2">
                                 <div className="ladding-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                     <div className="ladding-item-caption-content text-center text-white"><i className="fas fa-plus fa-3x"></i></div>
-                                </div>
-                                <img className="img-fluid" src="assets/img/ladding/ladding-1.jpg" alt="..." />
+                                </div>                               
                             </div>
                         </div>
                     </div>
