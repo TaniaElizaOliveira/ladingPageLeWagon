@@ -1,10 +1,42 @@
+import React, { useState } from 'react';
 import { SiRuby } from "react-icons/si";
 import { SiHtml5 } from "react-icons/si";
 import { SiCss3 } from "react-icons/si";
+import emailjs from '@emailjs/browser'
 
 
 
 const Home = () => {
+    const [name, setName] = useState('')
+    const [email, setEmail] = useState('')    
+    const [message, setMessage] = useState('')
+
+    const sendEmail = (e) => {
+        e.preventDefault();
+       if(name=== '' || email==='' || message===''){
+        return
+       }  
+       
+       const templateParams={
+        from_name : name,
+        message:message,
+        email:email
+       }
+       emailjs.send('service_wsbhe86','template_ljwrxgq', templateParams,'IguDDVrQNj70tBu92')
+       .then((response)=>{
+       alert('email sent', response.status, response.text)
+        setName('')
+        setEmail('')
+        setMessage('')
+       },(err)=>{
+        console.log('erro', err)
+       })
+       
+        setName('');
+        setEmail('');              
+        setMessage('');
+       
+      };
     return (
         <div id="page-top">
            
@@ -100,57 +132,73 @@ const Home = () => {
                         <div className="divider-custom-icon"><i className="fas fa-star"></i></div>
                         <div className="divider-custom-line"></div>
                     </div>
-
                     <div className="row justify-content-center">
-                        <div className="col-lg-8 col-xl-7">
+      <div className="col-lg-8 col-xl-7">
+        <form onSubmit={sendEmail}>
+          <div className="form-floating mb-3">
+            <input
+              className="form-control"
+              id="name"
+              type="text"
+              placeholder="Enter your name..."
+              data-sb-validations="required"
+              onChange={(e) => setName(e.target.value)}
+              value={name}
+            />
+            <label htmlFor="name">Name</label>
+            <div className="invalid-feedback" data-sb-feedback="name:required">
+              Name required.
+            </div>
+          </div>
 
-                            <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+          <div className="form-floating mb-3">
+            <input
+              className="form-control"
+              id="email"
+              type="email"
+              placeholder="name@example.com"
+              data-sb-validations="required,email"
+              onChange={(e) => setEmail(e.target.value)}
+              value={email}
+            />
+            <label htmlFor="email">E-mail</label>
+            <div className="invalid-feedback" data-sb-feedback="email:required">
+              E-mail required.
+            </div>
+            <div className="invalid-feedback" data-sb-feedback="email:email">
+              Invalid E-mail.
+            </div>
+          </div>        
+          <div className="form-floating mb-3">
+            <textarea
+              className="form-control"
+              id="message"
+              type="text"
+              placeholder="Enter your message here..."
+              data-sb-validations="required"
+              onChange={(e) => setMessage(e.target.value)}
+              value={message}
+            ></textarea>
+            <label htmlFor="message">Message</label>
+            <div className="invalid-feedback" data-sb-feedback="message:required">
+              Write your message, please.
+            </div>
+          </div>
 
-                                <div className="form-floating mb-3">
-                                    <input className="form-control" id="name" type="text" placeholder="Enter your name..."
-                                        data-sb-validations="required" />
-                                    <label for="name">Name</label>
-                                    <div className="invalid-feedback" data-sb-feedback="name:required">Name required.</div>
-                                </div>
+          <button className="neon-bt btn-secondary btn-xl " type="submit">
+            Send
+            <span></span>
 
-                                <div className="form-floating mb-3">
-                                    <input className="form-control" id="email" type="email" placeholder="name@example.com"
-                                        data-sb-validations="required,email" />
-                                    <label for="email">E-mail</label>
-                                    <div className="invalid-feedback" data-sb-feedback="email:required">E-mail required.</div>
-                                    <div className="invalid-feedback" data-sb-feedback="email:email">Invalid E-mail.</div>
-                                </div>
+<span></span>
 
-                                <div className="form-floating mb-3">
-                                    <input className="form-control" id="phone" type="tel" placeholder="(123) 456-78900"
-                                        data-sb-validations="required" />
-                                    <label for="phone">Phone Number</label>
-                                    <div className="invalid-feedback" data-sb-feedback="phone:required">
-                                        Phone Number required
-                                    </div>
-                                </div>
+<span></span>
 
-                                <div className="form-floating mb-3">
-                                    <textarea className="form-control" id="message" type="text"
-                                        placeholder="Enter your message here..."
-                                        data-sb-validations="required"></textarea>
-                                    <label for="message">Message</label>
-                                    <div className="invalid-feedback" data-sb-feedback="message:required">Write your message please
-                                    </div>
-                                </div>
-                                <div className="d-none" id="submitSuccessMessage">
-                                    <div className="text-center mb-3">
-                                        <div className="fw-bolder">Send ;)!</div>
-                                    </div>
-                                </div>
+<span></span>
+          </button>
+        </form>
+      </div>
+    </div>
 
-                                <div className="d-none" id="submitErrorMessage">
-                                    <div className="text-center text-danger mb-3">error sending</div>
-                                </div>
-                                <button className="btn btn-primary btn-xl disabled" id="submitButton" type="submit">To Send</button>
-                            </form>
-                        </div>
-                    </div>
                 </div>
             </section>
 
