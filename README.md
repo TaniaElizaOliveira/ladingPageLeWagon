@@ -30,7 +30,9 @@ npm start
 
 [gif](public/assets/img/StepByTech.gif)
 
-
+<p aling="center">
+  <img width="400" src="public/assets/img">
+  </p>
 
 
 
