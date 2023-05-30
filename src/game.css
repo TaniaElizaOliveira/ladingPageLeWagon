@@ -1,0 +1,67 @@
+.game-board {
+  background-image: url('./img/galaxi2.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  margin: auto;
+  position: relative;
+  overflow: hidden;  
+}
+
+
+.DiRuby{
+color: red;
+position: absolute;
+bottom: 0;
+width: 40vmin;
+height: 30vmin;
+animation: ruby-animation 1s infinite linear;
+}
+@keyframes ruby-animation{
+from{
+  right: -80px;
+}
+to{
+  right: 100%;
+}
+}
+.FaUserAstronaut {
+  width: 40vmin;
+  height: 40vmin;
+  position: absolute;
+  bottom: 0;
+  color: #ff00ff; 
+}
+
+.jump{
+  animation: jump 500ms ease-out;
+}
+@keyframes jump{
+0%{
+  bottom: 0;
+}
+40%{
+  bottom: 300px;
+}
+50%{
+  bottom: 300px;
+}
+60%{
+  bottom: 300px;
+}
+70%{
+  bottom: 300px;
+}
+80%{
+  bottom: 300px;
+}
+
+50%{
+  bottom: 300px;
+}
+
+100%{
+  bottom: 0;
+}
+}
+

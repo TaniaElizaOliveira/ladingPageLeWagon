@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import image from '../src/img/stepClass.jpg'; // Substitua 'nome-da-imagem.jpg' pelo nome do arquivo da sua imagem e sua extensão
+import image from '../src/img/stepClass.jpg'; 
+import { GiUnicorn } from "react-icons/gi";
 
 
 const Welcome = () => {
@@ -35,13 +36,13 @@ const Welcome = () => {
     <Link to="/home">
       <div className="container-magic">
         <div className="neon-border">
-          <div className="card-content">
-            <h2>Tech recruiter looking</h2>
-            <h4>For your new unicorn?...</h4>
-          </div>
+          
+            <h1>Tech recruiter,looking for the Future of Technological Talent!</h1>
+            <h2>Discover our programme, supported by Lisbon City Council and Le Wagon Portugal, offers a unique opportunity to discover exceptional talents who have improved their skills in our intensive web development bootcamp. Don't miss your chance to find your team's next superstar.
+               Explore our program now and unlock the potential of tomorrow's technology leaders!</h2>
+          
         </div>
-        <div
-          className="magic"
+        <div className="magic"
           style={{
             backgroundImage: `url(${image})`,
             left: `${magicPosition.left}px`,

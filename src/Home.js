@@ -3,43 +3,49 @@ import { SiRuby } from "react-icons/si";
 import { SiHtml5 } from "react-icons/si";
 import { SiCss3 } from "react-icons/si";
 import emailjs from '@emailjs/browser'
-
-
+import { Link } from 'react-router-dom';
 
 const Home = () => {
+    const [isOpen, setIsOpen] = useState(false);
+    const handleToggle = () => {
+        setIsOpen(!isOpen);
+    };
+
+
     const [name, setName] = useState('')
-    const [email, setEmail] = useState('')    
+    const [email, setEmail] = useState('')
     const [message, setMessage] = useState('')
 
     const sendEmail = (e) => {
         e.preventDefault();
-       if(name=== '' || email==='' || message===''){
-        return
-       }  
-       
-       const templateParams={
-        from_name : name,
-        message:message,
-        email:email
-       }
-       emailjs.send('service_wsbhe86','template_ljwrxgq', templateParams,'IguDDVrQNj70tBu92')
-       .then((response)=>{
-       alert('email sent', response.status, response.text)
-        setName('')
-        setEmail('')
-        setMessage('')
-       },(err)=>{
-        console.log('erro', err)
-       })
-       
+        if (name === '' || email === '' || message === '') {
+            alert('Please fill in all fields.');
+            return
+        }
+
+        const templateParams = {
+            from_name: name,
+            message: message,
+            email: email
+        }
+        emailjs.send('service_wsbhe86', 'template_ljwrxgq', templateParams, 'IguDDVrQNj70tBu92')
+            .then((response) => {
+                alert('email sent', response.status, response.text)
+                setName('')
+                setEmail('')
+                setMessage('')
+            }, (err) => {
+                console.log('erro', err)
+            })
+
         setName('');
-        setEmail('');              
+        setEmail('');
         setMessage('');
-       
-      };
+
+    };
     return (
         <div id="page-top">
-           
+
             <nav className="navbar navbar-expand-lg bg-secondary fixed-top" id="mainNav">
                 <div className="container">
                     <a className="navbar-brand" href="#page-top">Tech Recruiter, StepByTech Presents...</a>
@@ -68,7 +74,7 @@ const Home = () => {
                         <div className="divider-custom-icon"><i className="fas fa-star"></i></div>
                         <div className="divider-custom-line"></div>
                     </div>
-                    <p className="masthead-subheading font-weight-light mb-0">See Soon</p>
+
                 </div>
             </header>
 
@@ -76,16 +82,16 @@ const Home = () => {
                 <div className="container">
                     <h2 className="page-section-heading text-center text-uppercase text-primary mb-0">Hard Skills</h2>
                     <div className="divider-custom">
-                    <SiRuby className="siRuby"/>
-                    <SiHtml5 className="siHtml"/>
-                    <SiCss3 className="siCss"/>
+                        <SiRuby className="siRuby" />
+                        <SiHtml5 className="siHtml" />
+                        <SiCss3 className="siCss" />
                     </div>
                     <div className="row justify-content-center">
                         <div className="col-md-6 col-lg-4 mb-5">
                             <div className="ladding-item mx-auto" data-bs-toggle="modal" data-bs-target="#laddingModal2">
                                 <div className="ladding-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                     <div className="ladding-item-caption-content text-center text-white"><i className="fas fa-plus fa-3x"></i></div>
-                                </div>                               
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -104,18 +110,24 @@ const Home = () => {
                     </div>
 
                     <div className="row">
-                        <div className="col-lg-4 ms-auto">
-                            <p className="lead">ABOUT THE PROGRAM
-                                Promoted by the Lisbon City Council, through Future of Work 
-                                Lisboa, and with the support of Le Wagon Portugal, StepByTech 
-                                is a 100% free program that focuses on developing the skills 
-                                of the future. Taught Hard Skills and Soft Skills!</p>
+                        <div className="col-lg-8 mx-auto">                            
+                            <p className="lead">
+                                ABOUT THE PROGRAM Promoted by the Lisbon City Council, through Future of Work Lisboa, and with the support of Le Wagon Portugal, StepByTech is a 100% free program that focuses on developing the skills of the future. Taught Hard Skills and Soft Skills!
+                            </p>
+                            {isOpen && (
+                                <p className="lead">
+                                    Five participants will have the opportunity to participate in Le Wagon's intensive Web Development bootcamp, with advanced training and international recognition. Tech Recruiter, know that your team's new star will emerge from the lineup!
+                                </p>
+                            )}
+                            <div className="text-center">
+                                <button onClick={handleToggle} style={{ border: 'none', backgroundColor: 'white' }}>{isOpen ? '-' : '+'}</button>
+                            </div>
                         </div>
-                        <div className="col-lg-4 me-auto">
-                            <p className="lead">Five participants will have the opportunity
-                             to participate in Le Wagon's intensive Web Development bootcamp, 
-                             with advanced training and international recognition. Tech Recruiter,
-                              know that your team's new star will emerge from the lineup!</p>
+                        <div className="text-center" style={{ paddingTop: '4rem' }}>
+                            <p className="mb-3">Soon, and while waiting for the formation to play the game...</p>
+                            <button className="neon-bt btn-secondary mt-3">
+                                <Link to="/game" style={{ textDecoration: 'none', color: 'inherit' }}>Go to Game</Link>
+                            </button>
                         </div>
                     </div>
 
@@ -133,71 +145,71 @@ const Home = () => {
                         <div className="divider-custom-line"></div>
                     </div>
                     <div className="row justify-content-center">
-      <div className="col-lg-8 col-xl-7">
-        <form onSubmit={sendEmail}>
-          <div className="form-floating mb-3">
-            <input
-              className="form-control"
-              id="name"
-              type="text"
-              placeholder="Enter your name..."
-              data-sb-validations="required"
-              onChange={(e) => setName(e.target.value)}
-              value={name}
-            />
-            <label htmlFor="name">Name</label>
-            <div className="invalid-feedback" data-sb-feedback="name:required">
-              Name required.
-            </div>
-          </div>
+                        <div className="col-lg-8 col-xl-7">
+                            <form onSubmit={sendEmail}>
+                                <div className="form-floating mb-3">
+                                    <input
+                                        className="form-control"
+                                        id="name"
+                                        type="text"
+                                        placeholder="Enter your name..."
+                                        data-sb-validations="required"
+                                        onChange={(e) => setName(e.target.value)}
+                                        value={name}
+                                    />
+                                    <label htmlFor="name">Name</label>
+                                    <div className="invalid-feedback" data-sb-feedback="name:required">
+                                        Name required.
+                                    </div>
+                                </div>
 
-          <div className="form-floating mb-3">
-            <input
-              className="form-control"
-              id="email"
-              type="email"
-              placeholder="name@example.com"
-              data-sb-validations="required,email"
-              onChange={(e) => setEmail(e.target.value)}
-              value={email}
-            />
-            <label htmlFor="email">E-mail</label>
-            <div className="invalid-feedback" data-sb-feedback="email:required">
-              E-mail required.
-            </div>
-            <div className="invalid-feedback" data-sb-feedback="email:email">
-              Invalid E-mail.
-            </div>
-          </div>        
-          <div className="form-floating mb-3">
-            <textarea
-              className="form-control"
-              id="message"
-              type="text"
-              placeholder="Enter your message here..."
-              data-sb-validations="required"
-              onChange={(e) => setMessage(e.target.value)}
-              value={message}
-            ></textarea>
-            <label htmlFor="message">Message</label>
-            <div className="invalid-feedback" data-sb-feedback="message:required">
-              Write your message, please.
-            </div>
-          </div>
+                                <div className="form-floating mb-3">
+                                    <input
+                                        className="form-control"
+                                        id="email"
+                                        type="email"
+                                        placeholder="name@example.com"
+                                        data-sb-validations="required,email"
+                                        onChange={(e) => setEmail(e.target.value)}
+                                        value={email}
+                                    />
+                                    <label htmlFor="email">E-mail</label>
+                                    <div className="invalid-feedback" data-sb-feedback="email:required">
+                                        E-mail required.
+                                    </div>
+                                    <div className="invalid-feedback" data-sb-feedback="email:email">
+                                        Invalid E-mail.
+                                    </div>
+                                </div>
+                                <div className="form-floating mb-3">
+                                    <textarea
+                                        className="form-control"
+                                        id="message"
+                                        type="text"
+                                        placeholder="Enter your message here..."
+                                        data-sb-validations="required"
+                                        onChange={(e) => setMessage(e.target.value)}
+                                        value={message}
+                                    ></textarea>
+                                    <label htmlFor="message">Message</label>
+                                    <div className="invalid-feedback" data-sb-feedback="message:required">
+                                        Write your message, please.
+                                    </div>
+                                </div>
 
-          <button className="neon-bt btn-secondary btn-xl " type="submit">
-            Send
-            <span></span>
+                                <button className="neon-bt btn-secondary btn-xl" type="submit">
+                                    Send
+                                    <span></span>
 
-<span></span>
+                                    <span></span>
 
-<span></span>
+                                    <span></span>
 
-<span></span>
-          </button>
-        </form>
-      </div>
-    </div>
+                                    <span></span>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
 
                 </div>
             </section>
@@ -240,7 +252,7 @@ const Home = () => {
                         <div className="col-lg-4">
                             <h4 className="text-uppercase mb-4">FOR COMPANIES</h4>
                             <p className="lead mb-0">
-                            Accelerate your transformation, train your teams for Tech.
+                                Accelerate your transformation, train your teams for Tech.
                                 <a href="https://business.lewagon.com/#solutions">Explore Our Solutions</a>
 
                             </p>
