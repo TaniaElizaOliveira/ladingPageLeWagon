@@ -28,7 +28,8 @@ npm start
 
 ```
 
-[lading page le wagon](public/assets/img/StepByTech.gif)
+![Descrição do GIF](https://youtu.be/JcNe5P6RlzA)
+
 
 
 
