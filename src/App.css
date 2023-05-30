@@ -134,13 +134,6 @@
  
 
  
-
-/*animação do span para criar linhas*/
-
- 
-
- 
-
 .neon-bt span {
 
   position: absolute;
@@ -153,7 +146,6 @@
 
  
 
-/*span 1*/
 
 .neon-bt span:nth-child(1) {
 
@@ -191,7 +183,6 @@
 
  
 
-/*span 2*/
 
 .neon-bt span:nth-child(2) {
 
@@ -233,8 +224,6 @@
 
  
 
-/*span 3*/
-
  
 
 .neon-bt span:nth-child(3) {
@@ -275,7 +264,6 @@
 
  
 
-/*span 4*/
 
  
 
@@ -313,4 +301,7 @@
 
   }
 
+}
+.GiUnicorn{
+  margin: 1rem;
 }
