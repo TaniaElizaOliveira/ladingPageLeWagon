@@ -28,7 +28,7 @@ npm start
 
 ```
 
-![Descrição do GIF](https://youtu.be/JcNe5P6RlzA)
+[gif](public/assets/img/StepByTech.gif)
 
 
 
